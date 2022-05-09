@@ -50,7 +50,9 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
       const reviewsCollection = client
         .db("furneture")
         .collection("reviews");
+
       //get all product
+      
       app.get("/product", async (req, res) => {
         const query = {};
         const cursor = productCollection.find(query);
