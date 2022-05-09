@@ -46,7 +46,7 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
         .collection("product");
       const servicesCollection = client
         .db("furneture")
-        .collection("services");
+        .collection("service");
       const reviewsCollection = client
         .db("furneture")
         .collection("reviews");
@@ -123,14 +123,14 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
       });
   
       //get all services
-      app.get("/services", async (req, res) => {
+      app.get("/service", async (req, res) => {
         const query = {};
         const cursor = servicesCollection.find(query);
         const services = await cursor.toArray();
         res.send(services);
       });
       //get all reviews
-      app.get("/reviews", async (req, res) => {
+      app.get("/review", async (req, res) => {
         const query = {};
         const cursor = reviewsCollection.find(query);
         const reviews = await cursor.toArray();
