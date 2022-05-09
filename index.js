@@ -52,7 +52,7 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
         .collection("reviews");
 
       //get all product
-      
+
       app.get("/product", async (req, res) => {
         const query = {};
         const cursor = productCollection.find(query);
@@ -73,14 +73,14 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
         }
       });
       //get one product
-      app.get("/inventory/:id", async (req, res) => {
+      app.get("/product/:id", async (req, res) => {
         const id = req.params.id;
         const query = { _id: ObjectId(id) };
         const result = await productCollection.findOne(query);
         res.send(result);
       });
       //update one quantity
-      app.put("/inventory/:id", async (req, res) => {
+      app.put("/product/:id", async (req, res) => {
         const id = req.params.id;
         const updatedQuantity = req.body;
         const filter = { _id: ObjectId(id) };
@@ -99,7 +99,7 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
         res.send(result);
       });
       //delete inventory
-      app.delete("/inventory/:id", async (req, res) => {
+      app.delete("/product/:id", async (req, res) => {
         const id = req.params.id;
         const query = { _id: ObjectId(id) };
         const result = await productCollection.deleteOne(query);
