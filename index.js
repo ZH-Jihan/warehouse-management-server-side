@@ -130,7 +130,7 @@ const client = new MongoClient(uri, {   useNewUrlParser: true,
         res.send(services);
       });
       //get all reviews
-      app.get("/review", async (req, res) => {
+      app.get("/reviews", async (req, res) => {
         const query = {};
         const cursor = reviewsCollection.find(query);
         const reviews = await cursor.toArray();
